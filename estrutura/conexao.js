@@ -1,5 +1,7 @@
 const mysql = require('mysql')
 
+//Conexão com o WorkBench
+
 const conexao = mysql.createConnection({
 
         host: 'localhost',

@@ -1,5 +1,5 @@
 
-//Funcão - Configura o Express
+//Configura Express.
 
 const express = require ('express')
 const consign = require ('consign')
@@ -12,7 +12,7 @@ module.exports = () => {
     app.use(bodyParser.urlencoded({extended: true}))
     app.use(bodyParser.json())
 
-// **consign** organiza as rotas: 
+// **consign** Organiza as Rotas.
     consign()
         .include('controladores')
         .into(app)

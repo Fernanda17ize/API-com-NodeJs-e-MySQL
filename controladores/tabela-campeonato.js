@@ -1,17 +1,23 @@
-const Partida = require('../modelos/partidas') 
-var mysql = require('mysql');
 
-//Funcão - Controlar quais as rotas
+const Partida = require('../modelos/partidas') 
+const Tabela = require('../estrutura/tabelas')
+
+//Funcão - Controle das Rotas.
 
 module.exports = app => {
     
-    app.get('/campeonato', (req, res) => res.send(       ))
 
+    //GET para exibir a classificação.
+    app.get('/campeonato', (req, res) => res.send(
+        Tabela.mostraClassificacao(),
+     )
+    )
+  
+
+    //POST para dados das partidas. Times: 1, 2, 3 e 4.
     app.post('/campeonato', (req, res) => {
         const partida = req.body 
-        //conteudo do body é a partida
         Partida.adiciona(partida)
-     res.send('Voce este na rota da tabela e esta realizando um POST')
     })
 }
-
+      

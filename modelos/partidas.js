@@ -1,11 +1,14 @@
 const conexao = require ('../estrutura/conexao')
 
+
+// Inserir partidas
+
 class Partida {
 
     adiciona(partida) {   
-        var sql = ' INSERT INTO jogos SET ? '
+        var inserirPartidas = ' INSERT INTO jogos SET ? '
 
-        conexao.query(sql, partida, ( erro, resultados ) => { 
+        conexao.query(inserirPartidas, partida, ( erro, resultados ) => { 
             if(erro) {
             console.log(erro)
         } else {
@@ -15,5 +18,4 @@ class Partida {
     })
 }
 }
-
     module.exports = new Partida

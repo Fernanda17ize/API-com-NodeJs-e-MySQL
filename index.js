@@ -13,16 +13,14 @@ conexao.connect(erro => {
         console.log(erro)
     } else {
         
-        console.log('banco de dados conectado') 
-        //Primeiro confirma se o banco esta conectado.
+        console.log('Banco de dados conectado') 
+        //Confirma conexão com o banco.
         
-
         Tabelas.init(conexao)
-
         const app = customExpress()
             
-        app.listen(3000, () => console.log('servidor rodando na porta 3000')) 
-        //Segundo confirma se o servidor esta conectado.
+        app.listen(3000, () => console.log('Servidor rodando na porta 3000')) 
+        //Confirma conexão com o servidor. 
     }
 })
 
