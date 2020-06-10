@@ -10,5 +10,5 @@ const conexao = mysql.createConnection({
         password: 'admin',
         database: 'campeonato-futebol'
     } ) 
-
+ 
 module.exports = conexao

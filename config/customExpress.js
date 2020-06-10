@@ -6,6 +6,7 @@ const consign = require ('consign')
 const bodyParser = require ('body-parser')
 
 
+
 module.exports = () => {
     const app = express()
 
@@ -17,6 +18,7 @@ module.exports = () => {
         .include('controladores')
         .into(app)
 
+      
 return app
 }
 

@@ -14,8 +14,9 @@ class Partida {
         } else {
             console.log(resultados)
         }
-    
     })
 }
 }
     module.exports = new Partida
+
+     
