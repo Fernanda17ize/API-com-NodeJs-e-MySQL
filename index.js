@@ -6,7 +6,7 @@ const customExpress = require('./config/customExpress')
 const conexao = require('./estrutura/conexao')
 const Tabelas = require('./estrutura/tabelas')
 
-  // index.js
+
 
 
 conexao.connect(erro => {

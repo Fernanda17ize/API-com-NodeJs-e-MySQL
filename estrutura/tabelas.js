@@ -9,11 +9,10 @@ class Tabelas {
     }
 
 
-    //Tabela inserir as Equipes.     
+    //Tabela inserir as 4 equipes - 1 Gremio,2 Fortaleza,3 Avai, 4 Atletico - automaticamente.     
     criarTimes() {
-        var sqlCriarTabelaTimes = 'CREATE TABLE IF NOT EXISTS equipes (id int primary key auto_increment, nometime char(32))' 
+        var sqlCriarTabelaTimes = 'CREATE TABLE IF NOT EXISTS Equipes (id int primary key auto_increment, nometime char(32))' 
         var inserirTimes = ' INSERT INTO equipes VALUES (1,"Gremio"), (2,"Fortaleza"), (3,"Avai"), (4,"Atletico") '
-    
         this.conexao.query(sqlCriarTabelaTimes, (erro) => {
             if(erro) {
                 console.log(erro)
@@ -25,31 +24,25 @@ class Tabelas {
                         console.log('Times Já Inseridos')
                     } else {
                         console.log('Times inseridos com sucesso')
-                    } 
-                        
-                    }                           
-                )}
-                
-            }      
-        )}
+                    }}                           
+                )}  
+            }      )}
 
-
-    //Tabela para inserir as Partidas. 
-    criarPartidas() {
-        var sqlCriarPartidas = 'CREATE TABLE IF NOT EXISTS jogos (id int auto_increment, mandante int, visitante int, golmandante tinyint, golvisitante tinyint, primary key(id))'
-          
-        this.conexao.query(sqlCriarPartidas, (erro) => {
-            if(erro) {
-                console.log(erro)
-            } else {
-                console.log('Tabela Jogos criada com sucesso')
-            }   }        
-        )};
-        
+    //Tabela para inserir as Partidas manualmente. 
+        criarPartidas() {
+            var sqlCriarPartidas = 'CREATE TABLE IF NOT EXISTS jogos (id int auto_increment, mandante int, golmandante tinyint, visitante int, golvisitante tinyint, primary key(id))'
+            this.conexao.query(sqlCriarPartidas, (erro) => {
+                if(erro) {
+                    console.log(erro)
+                 } else {
+                     console.log('Tabela Jogos criada com sucesso')
+                       }}      
+             )}
+    
  
-           //Mostra as Partidas.
+    //Mostra as Partidas.
             mostraCampeonato() {
-                var sqlCampeonato = 'select * from jogos'
+                var sqlCampeonato = 'SELECT * FROM Jogos'
                 this.conexao.query(sqlCampeonato, function(erro, rows) {
                     if (erro) throw erro;
                     console.table(rows)
@@ -57,17 +50,11 @@ class Tabelas {
             }
 
  
-          //Mostra a Classificação. 
+    //Mostra a Classificação Final. 
             mostraClassificacao() {
                 var sqlClassificacao = 'SELECT nometime AS Equipes,  Sum(PARTIDA) AS PARTIDA, Sum(VITORIA) AS VITORIA, Sum(EMPATE) AS EMPATE, Sum(DERROTA) AS DERROTA,  SUM(GP) as GP, SUM(GC) AS GC, SUM(DIF) AS DIF, SUM(PONTOS) AS PONTOS FROM( SELECT mandante Equipes, 1 PARTIDA, IF(golmandante > golvisitante,1,0) VITORIA, IF(golmandante = golvisitante,1,0)  EMPATE, IF(golmandante < golvisitante,1,0) DERROTA, golmandante GP, golvisitante GC, golmandante-golvisitante DIF, CASE WHEN golmandante > golvisitante THEN 3 WHEN golmandante = golvisitante THEN 1 ELSE 0 END PONTOS FROM jogos UNION ALL SELECT visitante, 1, IF(golmandante < golvisitante,1,0),  IF(golmandante = golvisitante,1,0), IF(golmandante > golvisitante,1,0), golvisitante, golmandante, golvisitante-golmandante DIF, CASE WHEN golmandante < golvisitante THEN 3 WHEN golmandante = golvisitante THEN 1 ELSE 0 END FROM jogos) as tot JOIN Equipes t ON tot.Equipes=t.id GROUP BY Equipes ORDER BY SUM(PONTOS) DESC '
                 this.conexao.query(sqlClassificacao, function(erro, rows) {
                     if (erro) throw erro;
-                    console.table(rows)
-        })
-
-        }
-        
-    } 
+                    console.table(rows)  })  }} 
  
-
         module.exports = new Tabelas
