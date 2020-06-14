@@ -1,6 +1,7 @@
 # nodejs-api-projeto
 
 api tabela de campeonato futebol com mysql
+https://www.youtube.com/watch?v=iFIyrJ-NJ74&feature=youtu.be
 
 # DOCUMENTAÇÃO DA API
 
@@ -10,101 +11,9 @@ api tabela de campeonato futebol com mysql
 . API testada com POSTMAN. 
 
 
-# LOGIN 
-
-. LOGIN E SENHA PARA ACESSAR AS PÁGINAS: 
-(usuarios.json)
-
-    // email: futebol@email
-    
-    // senha: senha
-    
-    . Será gerado um ToKen para navegar pelas demais rotas: classificação, campeonato. 
-    
-
-# BANCO DE DADOS 
-
-. A conexão foi feita com SQL WorkBench (estrutura/conexão).
-
-        host: 'localhost',
-        
-        port: 3306,
-        
-        user: 'root',
-        
-        password: 'admin',
-        
-        database: 'campeonato-futebol'
-        
-
-# EQUIPES CADASTRADAS
-
-. Já tem 4 times cadastrados que são inseridos no banco automaticamente. 
-
-    1. Grêmio,
-    
-    2. Fortaleza
-    
-    3. Avaí
-    
-    4. Atlético
-    
-
-# CADASTRO DAS PARTIDAS 
-
-. É possível cadastrar os times, jogos, gols na tabela "/CAMPEONATO". 
-
-    . Tabela de partidas recebe e exibe:
-    
-    index,
-    
-    id,
-    
-    clube mandante (mandante),
-    
-    gols do time mandante (golmandante),
-    
-    clube visitante (visitante),
-    
-    golvisitante (gols do time visitante).
-    
-
-. É possível apenas CADASTRAR - ainda //não é possível ALTERAR OU DELETAR//. 
-    
-
-*** CLASSIFICAÇÃO ***
-
-. O SELECT do SQL mostra o resultado da classificação em "/CLASSIFICACAO".
-
-    .A tabela de classificação exibe:
-    
-    Index, 
-    
-    Nome da Equipe,
-    
-    Partidas disputadas,
-    
-    Vitória,
-    
-    Empate,
-    
-    Derrota,
-    
-    GP (Gol Pró),
-    
-    GC (Gol Contra),
-    
-    Dif (Diferença de Gols),
-    
-    Pontuação final. 
-    
-
-# Métodos
+# MÉTODOS #
 
 
-***CONTROLE***
-
-. O controle das rotas está organizado em "/controladores/controle-rotas.js"
 
 
 ------------------------------------
@@ -170,3 +79,96 @@ id
 "Saldo de Gols" : Saldo de Gols
 
 "Pontuação Final" : Classificação final.
+
+# LOGIN #
+
+. LOGIN E SENHA PARA ACESSAR AS PÁGINAS: 
+(usuarios.json)
+
+    // email: futebol@email
+    
+    // senha: senha
+    
+    . Será gerado um ToKen para navegar pelas demais rotas: classificação, campeonato. 
+    
+
+# BANCO DE DADOS #
+
+. A conexão foi feita com SQL WorkBench (estrutura/conexão).
+
+        host: 'localhost',
+        
+        port: 3306,
+        
+        user: 'root',
+        
+        password: 'admin',
+        
+        database: 'campeonato-futebol'
+        
+
+# EQUIPES CADASTRADAS #
+
+. Já tem 4 times cadastrados que são inseridos no banco automaticamente. 
+
+    1. Grêmio,
+    
+    2. Fortaleza
+    
+    3. Avaí
+    
+    4. Atlético
+    
+
+# CADASTRO DAS PARTIDAS #
+
+. É possível cadastrar os times, jogos, gols na tabela "/CAMPEONATO". 
+
+    . Tabela de partidas recebe e exibe:
+    
+    index,
+    
+    id,
+    
+    clube mandante (mandante),
+    
+    gols do time mandante (golmandante),
+    
+    clube visitante (visitante),
+    
+    golvisitante (gols do time visitante).
+    
+
+. É possível apenas CADASTRAR - ainda //não é possível ALTERAR OU DELETAR//. 
+    
+
+# CLASSIFICAÇÃO #
+
+. O SELECT do SQL mostra o resultado da classificação em "/CLASSIFICACAO".
+
+    .A tabela de classificação exibe:
+    
+    Index, 
+    
+    Nome da Equipe,
+    
+    Partidas disputadas,
+    
+    Vitória,
+    
+    Empate,
+    
+    Derrota,
+    
+    GP (Gol Pró),
+    
+    GC (Gol Contra),
+    
+    Dif (Diferença de Gols),
+    
+    Pontuação final. 
+    
+# CONTROLE #
+
+. O controle das rotas está organizado em "/controladores/controle-rotas.js"
+
