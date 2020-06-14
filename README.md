@@ -1,6 +1,7 @@
 # nodejs-api-projeto
 
 api tabela de campeonato futebol com mysql
+
 https://www.youtube.com/watch?v=iFIyrJ-NJ74&feature=youtu.be
 
 # DOCUMENTAÇÃO DA API
@@ -13,11 +14,8 @@ https://www.youtube.com/watch?v=iFIyrJ-NJ74&feature=youtu.be
 
 # MÉTODOS #
 
-
-
-
 ------------------------------------
-LOGIN
+# LOGIN
 
 Método: POST
 
@@ -29,9 +27,8 @@ email: futebol@email
 
 senha: senha
 
-
 -------------------------------------
-Incluir partidas do campeonato.
+# Incluir partidas do campeonato.
 
 Método: POST/GET
 
@@ -50,9 +47,8 @@ id
 "golvisitante" : tinyint.
 
 
-
 -------------------------------------
-Verifica Tabela de Classificação.
+# Verifica Tabela de Classificação.
 
 Método: GET 
 
@@ -91,6 +87,7 @@ id
     
     . Será gerado um ToKen para navegar pelas demais rotas: classificação, campeonato. 
     
+-------------------------------------------
 
 # BANCO DE DADOS #
 
